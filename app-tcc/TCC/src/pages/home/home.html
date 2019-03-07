@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="loginPage" scroll="false">
+	<ion-grid style="height: 100%">
+		<ion-row justify-content-centeralign-items-centerstyle="height: 80%">
+			
+				<ion-grid class="login-container">
+					<ion-row align-items-center>
+					</ion-row>
+					<form #loginForm="ngForm" autocomplete="off" class="login-form">
+						<ion-row>
+							<ion-col>
+							    <ion-list>
+									<ion-item>
+										<ion-input placeholder="Email" name="email" id="loginField" type="text" required [(ngModel)]="model.email"></ion-input>
+									</ion-item>
+									<ion-item>
+										<ion-input placeholder="Senha" [type]="isTextFieldType ? 'text' : 'password'" name="password" id="passwordField" required [(ngModel)]="model.password"></ion-input>
+									</ion-item>
+								</ion-list>
+							</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col>
+								<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+								<button ion-button class="submit-btn" (click)="realizarLogin()" [disabled]="!loginForm.form.valid">ENTRAR</button>
+							</ion-col>
+						</ion-row>
+					</form>
+				</ion-grid>
+		</ion-row>
+	</ion-grid>
+</ion-content>
